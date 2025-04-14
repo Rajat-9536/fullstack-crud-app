@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import axios from "axios";
 
-// Function to generate a random color from a list
 const getBadgeColor = () => {
   const colors = [
     "bg-red-500",
@@ -44,7 +43,6 @@ export default function UserDetail() {
   return (
     <div className="h-screen dark:bg-gray-700 bg-gray-200 pt-12">
       <div className="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-        {/* Profile Header */}
         <div className="border-b px-4 pb-6">
           <div className="text-center my-4">
             <img
@@ -58,7 +56,6 @@ export default function UserDetail() {
               </h3>
             </div>
           </div>
-          {/* Buttons */}
           <div className="flex gap-2 px-2">
             <button className="flex-1 rounded-full bg-blue-600 dark:bg-blue-800 text-white font-bold hover:bg-blue-800 dark:hover:bg-blue-900 px-4 py-2">
               Follow
@@ -69,7 +66,6 @@ export default function UserDetail() {
           </div>
         </div>
 
-        {/* User Details Section */}
         <div className="px-4 py-4 space-y-3 text-gray-800 dark:text-gray-300">
           <div>
             <span className="text-gray-500 dark:text-gray-400">Email:</span>

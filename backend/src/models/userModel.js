@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   mobile: { type: Number, required: true, unique: true },
   age: { type: Number, required: true },
   interest: { type: [String], required: true },
-});
+},{ timestamps: true });
 
 const User = mongoose.model("User", userSchema);
 

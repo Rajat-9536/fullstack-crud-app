@@ -1,13 +1,13 @@
-const Joi = require('joi');
+// const Joi = require('joi');
 
-exports.validateUser = (userData) => {
-  const schema = Joi.object({
-    user: Joi.string().required(),
-    email: Joi.string().email().required(),
-    mobile: Joi.number().required(),
-    age: Joi.number().required(),
-    interest: Joi.string().required(),
-  });
+// exports.validateUser = (userData) => {
+//   const schema = Joi.object({
+//     user: Joi.string().required(),
+//     email: Joi.string().email().required(),
+//     mobile: Joi.number().required(),
+//     age: Joi.number().required(),
+//     interest: Joi.string().required(),
+//   });
 
-  return schema.validate(userData);
-};
+//   return schema.validate(userData);
+// };

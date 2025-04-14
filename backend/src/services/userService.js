@@ -4,9 +4,21 @@ exports.createUser = async (userData) => {
   try {
     const { user, email, mobile, age, interest } = userData;
 
+
+    if (typeof user !== 'string' || user.trim().length === 0 || /\d/.test(user)) {
+      const error = new Error("User name must be a valid string without numbers.");
+      error.status = 400;
+      throw error;
+    }
+
+    if (!/^\d{10}$/.test(mobile)) {
+      const error = new Error("Mobile number must be exactly 10 digits.");
+      error.status = 400;
+      throw error;
+    }
+
     const existingUser = await User.findOne({ $or: [{ email }, { mobile }] });
     if (existingUser) {
-      // Throw a specific error for duplicate user
       const error = new Error("User with this email or mobile already exists.");
       error.status = 400;
       throw error;

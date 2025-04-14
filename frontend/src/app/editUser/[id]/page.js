@@ -6,7 +6,7 @@ import Link from "next/link";
 
 
 export default function EditUser({ params }) {
-  const { id } = use(params); // ✅ Corrected use of params
+  const { id } = use(params);
 
   const router = useRouter();
 

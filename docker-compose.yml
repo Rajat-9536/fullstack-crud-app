@@ -9,7 +9,7 @@ services:
       - ./backend/.env
     volumes:
       - ./backend:/app
-      - /app/node_modules  # prevents override
+      - /app/node_modules
     depends_on:
       - mongo
 
@@ -21,7 +21,7 @@ services:
       - NEXT_PUBLIC_API_URL=http://localhost:5000
     volumes:
       - ./frontend:/app
-      - /app/node_modules  # prevents override
+      - /app/node_modules
     depends_on:
       - backend
 

@@ -7,7 +7,7 @@ const cors = require("cors"); // ✅ Important
 dotenv.config();
 
 const app = express();
-app.use(cors()); // ✅ Allow all origins
+app.use(cors());
 app.use(bodyParser.json());
 require("./src/config/db");
 
