@@ -9,9 +9,10 @@ services:
       - ./backend/.env
     volumes:
       - ./backend:/app
+      - /app/node_modules  # prevents override
     depends_on:
       - mongo
-  
+
   frontend:
     build: ./frontend
     ports:
@@ -20,9 +21,10 @@ services:
       - NEXT_PUBLIC_API_URL=http://localhost:5000
     volumes:
       - ./frontend:/app
+      - /app/node_modules  # prevents override
     depends_on:
       - backend
-  
+
   mongo:
     image: mongo:6
     restart: always
