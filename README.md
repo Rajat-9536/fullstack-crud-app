@@ -27,7 +27,7 @@ Here's how to get the project up and running:
 1.  Clone the repository:
 
     ```
-    git clone [https://github.com/Rajat-9536/fullstack-crud-app.git](https://github.com/Rajat-9536/fullstack-crud-app.git)
+    git clone https://github.com/Rajat-9536/fullstack-crud-app.git
     cd fullstack-crud-app
     ```
 
