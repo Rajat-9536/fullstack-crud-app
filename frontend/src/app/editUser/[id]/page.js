@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
+import Link from "next/link";
+
 
 export default function EditUser({ params }) {
   const { id } = use(params); // ✅ Corrected use of params
@@ -16,7 +18,7 @@ export default function EditUser({ params }) {
     interest: "",
   });
 
-  console.log("form data before use effects",formData);
+  console.log("form data before use effects", formData);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -73,64 +75,137 @@ export default function EditUser({ params }) {
       console.error("Error updating user:", error);
     }
   };
-  console.log("form data before after effects",formData);
-
+  console.log("form data before after effects", formData);
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6">
-      <div className="bg-white shadow-lg rounded-xl p-6">
-        <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Edit User</h2>
+    <div className="p-6 max-w-4xl mx-auto">
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-center text-gray-800">
+          Edit User
+        </h1>
+        <Link
+          href={`/`}
+          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+          Back
+        </Link>
+      </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            name="user"
-            value={formData.user}
-            onChange={handleChange}
-            placeholder="Name"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      <div className="bg-white p-4 rounded-lg border border-neutral-200 hover:border-neutral-300 transition-colors">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-5">
+            <label
+              htmlFor="user"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Name
+            </label>
+            <input
+              id="user"
+              name="user"
+              placeholder="John Doe"
+              value={formData.user}
+              onChange={handleChange}
+              required
+              className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            />
+          </div>
 
-          <input
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            type="email"
-            placeholder="Email"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <div className="mb-5">
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="name@example.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            />
+          </div>
 
-          <input
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            placeholder="Mobile"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <div className="mb-5">
+            <label
+              htmlFor="mobile"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Mobile
+            </label>
+            <input
+              id="mobile"
+              name="mobile"
+              type="number"
+              placeholder="1234567890"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+              className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            />
+          </div>
 
-          <input
-            name="age"
-            value={formData.age}
-            onChange={handleChange}
-            placeholder="Age"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <div className="mb-5">
+            <label
+              htmlFor="age"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Age
+            </label>
+            <input
+              id="age"
+              name="age"
+              type="number"
+              placeholder="25"
+              value={formData.age}
+              onChange={handleChange}
+              required
+              className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            />
+          </div>
 
-          <input
-            name="interest"
-            value={formData.interest}
-            onChange={handleChange}
-            placeholder="Interests (comma-separated)"
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <div className="mb-5">
+            <label
+              htmlFor="interest"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Interests
+            </label>
+            <input
+              id="interest"
+              name="interest"
+              placeholder="e.g., Music, Sports"
+              value={formData.interest}
+              onChange={handleChange}
+              required
+              className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            />
+          </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
+          focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center 
+          dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Update User
           </button>

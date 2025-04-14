@@ -42,33 +42,54 @@ export default function UserDetail() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white shadow-md rounded-xl w-full max-w-md p-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">User Details</h1>
-        <div className="space-y-3">
+    <div className="h-screen dark:bg-gray-700 bg-gray-200 pt-12">
+      <div className="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+        {/* Profile Header */}
+        <div className="border-b px-4 pb-6">
+          <div className="text-center my-4">
+            <img
+              className="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4"
+              src="https://randomuser.me/api/portraits/women/21.jpg"
+              alt=""
+            />
+            <div className="py-2">
+              <h3 className="font-bold text-2xl text-gray-800 dark:text-white mb-1">
+                {user.user}
+              </h3>
+            </div>
+          </div>
+          {/* Buttons */}
+          <div className="flex gap-2 px-2">
+            <button className="flex-1 rounded-full bg-blue-600 dark:bg-blue-800 text-white font-bold hover:bg-blue-800 dark:hover:bg-blue-900 px-4 py-2">
+              Follow
+            </button>
+            <button className="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-white px-4 py-2">
+              Message
+            </button>
+          </div>
+        </div>
+
+        {/* User Details Section */}
+        <div className="px-4 py-4 space-y-3 text-gray-800 dark:text-gray-300">
           <div>
-            <span className="text-gray-500">Name:</span>
-            <p className="text-lg text-gray-800">{user.user}</p>
+            <span className="text-gray-500 dark:text-gray-400">Email:</span>
+            <p className="text-sm">{user.email}</p>
           </div>
           <div>
-            <span className="text-gray-500">Email:</span>
-            <p className="text-lg text-gray-800">{user.email}</p>
+            <span className="text-gray-500 dark:text-gray-400">Mobile:</span>
+            <p className="text-sm">{user.mobile}</p>
           </div>
           <div>
-            <span className="text-gray-500">Mobile:</span>
-            <p className="text-lg text-gray-800">{user.mobile}</p>
+            <span className="text-gray-500 dark:text-gray-400">Age:</span>
+            <p className="text-sm">{user.age}</p>
           </div>
           <div>
-            <span className="text-gray-500">Age:</span>
-            <p className="text-lg text-gray-800">{user.age}</p>
-          </div>
-          <div>
-            <span className="text-gray-500">Interests:</span>
+            <span className="text-gray-500 dark:text-gray-400">Interests:</span>
             <div className="flex flex-wrap gap-2 mt-2">
               {user.interest?.map((item, index) => (
                 <span
                   key={index}
-                  className={`${getBadgeColor()} text-white text-sm px-3 py-1 rounded-full`}
+                  className={`${getBadgeColor()} text-white text-xs px-3 py-1 rounded-full`}
                 >
                   {item}
                 </span>
