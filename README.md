@@ -34,7 +34,7 @@ Here's how to get the project up and running:
 2.  Create the backend environment file:
 
     ```
-    touch backend/.env
+    echo. > backend\.env
     ```
 
 3.  Add the following content to the `backend/.env` file:
@@ -47,7 +47,7 @@ Here's how to get the project up and running:
 4.  Create the frontend environment file:
 
     ```
-    touch frontend/.env
+    echo. > frontend\.env
     ```
 
 5.  Add the following content to the `frontend/.env` file:
