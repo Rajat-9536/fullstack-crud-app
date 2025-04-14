@@ -14,29 +14,50 @@ fullstack-crud-app/ ├── frontend/ # Next.js frontend (port 3000) ├──
 
 ## ⚙️ Requirements
 
-- [Docker](https://www.docker.com/products/docker-desktop)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- Ports `3000`, `5000`, and `27017` should be free
+-   [Docker](https://www.docker.com/products/docker-desktop)
+-   [Docker Compose](https://docs.docker.com/compose/install/)
+-   Ports `3000`, `5000`, and `27017` should be free
 
 ---
 
 ## 🚀 How to Run This Project
 
-### 1. Clone the Repository
+Here's how to get the project up and running:
 
-```bash
-git clone https://github.com/Rajat-9536/fullstack-crud-app.git
-cd fullstack-crud-app
+1.  Clone the repository:
 
-touch backend/.env
+    ```
+    git clone [https://github.com/Rajat-9536/fullstack-crud-app.git](https://github.com/Rajat-9536/fullstack-crud-app.git)
+    cd fullstack-crud-app
+    ```
 
-PORT=5000
-MONGODB_URI=mongodb://mongo:27017/Cluster0 ### sample of mongodb connection string
+2.  Create the backend environment file:
 
-touch frontend/.env
+    ```
+    touch backend/.env
+    ```
 
-NEXT_PUBLIC_API_URL=http://localhost:5000
+3.  Add the following content to the `backend/.env` file:
 
-### after going to the main root of project run this cmd
+    ```
+    PORT=5000
+    MONGODB_URI=mongodb://mongo:27017/Cluster0  # Sample of MongoDB connection string
+    ```
 
-docker compose up --build
+4.  Create the frontend environment file:
+
+    ```
+    touch frontend/.env
+    ```
+
+5.  Add the following content to the `frontend/.env` file:
+
+    ```
+    NEXT_PUBLIC_API_URL=http://localhost:5000
+    ```
+
+6.  After navigating to the main project directory, run the Docker Compose command:
+
+    ```
+    docker compose up --build
+    ```
